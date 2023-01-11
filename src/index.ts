@@ -6,10 +6,10 @@ import { MatchResult } from './MatchResult';
 // only use enums when you know before hand the all possible values  when writing the code
 
 let manUnitedWins = 0;
-let reader = new CSVFileReader('football.csv');
+const reader = new CSVFileReader('football.csv');
 reader.read();
 
-console.log(reader.data);
+console.log(reader.data[0]);
 
 for (let match of reader.data) {
   if (match[1] === 'Man United' && match[5] === MatchResult.HomeWin) {
