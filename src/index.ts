@@ -10,10 +10,18 @@ import { Summary } from './Summary';
 // but it's for other engineers to read that it is a collection of closely related values
 // only use enums when you know before hand the all possible values  when writing the code
 
-const csvFileReader = new CSVFileReader('football.csv');
-const reader = new MatchReader(csvFileReader);
+const reader = MatchReader.fromCSV('football.csv');
+
+/* const csvFileReader = new CSVFileReader('football.csv'); */
+/* const reader = new MatchReader(csvFileReader); */
 reader.load();
 
-const summary = new Summary(new WinsAnalyis('Man United'), new HtmlReport());
+const summary = Summary.winsAnalysisWithHtmlReport('Man United');
+/* const summary = new Summary(new WinsAnalyis('Man United'), new HtmlReport()); */
+const summary2 = new Summary(
+  new WinsAnalyis('Man United'),
+  new ConsoleReport()
+);
 
 summary.buildAndPrintReport(reader.matches);
+summary2.buildAndPrintReport(reader.matches);
