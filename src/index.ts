@@ -1,4 +1,4 @@
-import { CSVFileReader } from './CSVFileReader';
+import { MatchReader } from './MatchReader';
 import { MatchResult } from './MatchResult';
 // enum - enumeration that stored closely related values - TS
 // purpose is for other engineer. it's like an object
@@ -6,7 +6,7 @@ import { MatchResult } from './MatchResult';
 // only use enums when you know before hand the all possible values  when writing the code
 
 let manUnitedWins = 0;
-const reader = new CSVFileReader('football.csv');
+const reader = new MatchReader('football.csv');
 reader.read();
 
 console.log(reader.data[0]);
