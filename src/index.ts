@@ -2,6 +2,7 @@ import { WinsAnalyis } from './analyzers/WinsAnalysis';
 import { CSVFileReader } from './CSVFileReader';
 import { MatchReader } from './MatchReader';
 import { ConsoleReport } from './reportTargets/ConsoleReport';
+import { HtmlReport } from './reportTargets/HtmlReport';
 import { Summary } from './Summary';
 
 // enum - enumeration that stored closely related values - TS
@@ -13,6 +14,6 @@ const csvFileReader = new CSVFileReader('football.csv');
 const reader = new MatchReader(csvFileReader);
 reader.load();
 
-const summary = new Summary(new WinsAnalyis('Man United'), new ConsoleReport());
+const summary = new Summary(new WinsAnalyis('Man United'), new HtmlReport());
 
 summary.buildAndPrintReport(reader.matches);
